@@ -270,7 +270,7 @@ class DicomReader(DataReader):
                     dicom_slices = p.map(fn, lstFilesDCM)
         else:
             dicom_slices = [
-                pydicom.read_file(fp, force=True)
+                pydicom.dcmread(fp, force=True)
                 for fp in tqdm(lstFilesDCM, disable=not self.verbose)
             ]
 
