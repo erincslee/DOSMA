@@ -262,7 +262,7 @@ class DicomReader(DataReader):
             )
 
         if self.num_workers:
-            fn = functools.partial(pydicom.read_file, force=True)
+            fn = functools.partial(pydicom.dcmread, force=True)
             if self.verbose:
                 dicom_slices = process_map(fn, lstFilesDCM, max_workers=self.num_workers)
             else:
